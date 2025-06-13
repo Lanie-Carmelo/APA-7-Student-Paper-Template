@@ -22,6 +22,7 @@ html: $(TEXFILE) $(BIBFILE) | $(OUTPUT_DIR)
 		--csl=apa.csl \
 		--citeproc \
 		--standalone \
+		--metadata lang=en \
 		-o $(OUTPUT_DIR)/main.html
 
 # DOCX target

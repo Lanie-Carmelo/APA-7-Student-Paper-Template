@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1749107094.68569 "main.bcf" "main.bbl" "main" 1749108240.68917 0
-  "main.bcf" 1749108240 133355 ab6ac98b8d81e3d5176f89f6662386d7 "pdflatex"
-  "references.bib" 1749107092 193 88e2923433e35a523655f4d54e8e7fee ""
+["biber main"] 1749107094.68569 "main.bcf" "main.bbl" "main" 1749829562.37171 0
+  "main.bcf" 1749829562 133355 ab6ac98b8d81e3d5176f89f6662386d7 "pdflatex"
+  "references.bib" 1749108320 193 88e2923433e35a523655f4d54e8e7fee ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1749108238.5991 "c:/Users/LanieMolinarCarmelo/OneDrive - Life of a Rare Bird/Documents/Colorado Christian University/APA7StudentPaperTemplate/main.tex" "main.pdf" "main" 1749108240.69017 0
+["pdflatex"] 1749829560.32122 "c:/Users/LanieMolinarCarmelo/OneDrive - Life of a Rare Bird/Documents/Colorado Christian University/APA_7_Student_Paper_Template/main.tex" "main.pdf" "main" 1749829562.37275 0
   "C:/Program Files/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1736607166 2914 fdbc4a54b9bc76f4551b5303f2737d33 ""
   "C:/Program Files/MiKTeX/fonts/tfm/public/cm/cmr12.tfm" 1136765053 1288 655e228510b4c2a1abe905c368440826 ""
   "C:/Program Files/MiKTeX/fonts/tfm/public/lm/ec-lmr12.tfm" 1256929440 12092 7b1546e2d096cfd5dcbd4049b0b1ec2e ""
@@ -198,12 +198,12 @@
   "C:/Program Files/MiKTeX/tex/latex/xstring/xstring.sty" 1693735632 123 a302f2c651a95033260db60e51527ae8 ""
   "C:/Users/LanieMolinarCarmelo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1749091709 163207 8b397a28da8cf491d72adf658ad1aa93 ""
   "C:/Users/LanieMolinarCarmelo/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1749091852 13149299 e155e44ad4f444f5e8f7d68751bae5b9 ""
-  "c:/Users/LanieMolinarCarmelo/OneDrive - Life of a Rare Bird/Documents/Colorado Christian University/APA7StudentPaperTemplate/main.tex" 1749108237 1083 8eec576b2e95ce1de4dbc328584b6564 ""
-  "main.aux" 1749108240 731 b6540cc2df4f163a34ac262cd1a158f3 "pdflatex"
+  "c:/Users/LanieMolinarCarmelo/OneDrive - Life of a Rare Bird/Documents/Colorado Christian University/APA_7_Student_Paper_Template/main.tex" 1749829559 1093 bdbb1a08adcc4e147f02a8594a31294f ""
+  "main.aux" 1749829562 731 b6540cc2df4f163a34ac262cd1a158f3 "pdflatex"
   "main.bbl" 1749107097 3317 559f3971ff693ed9bab4a011b39d83eb "biber main"
-  "main.out" 1749108240 122 5753b21968e83dd8879c63614249d1e1 "pdflatex"
-  "main.run.xml" 1749108240 2427 1cb2222298133837dc7949fc0988b415 "pdflatex"
-  "main.tex" 1749108237 1083 8eec576b2e95ce1de4dbc328584b6564 ""
+  "main.out" 1749829562 122 5753b21968e83dd8879c63614249d1e1 "pdflatex"
+  "main.run.xml" 1749829562 2427 1cb2222298133837dc7949fc0988b415 "pdflatex"
+  "main.tex" 1749829559 1093 bdbb1a08adcc4e147f02a8594a31294f ""
   (generated)
   "main.aux"
   "main.bcf"
