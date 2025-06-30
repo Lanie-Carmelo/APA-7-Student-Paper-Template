@@ -10,10 +10,10 @@ all: pdf html docx
 
 # PDF target
 pdf:
-	pdflatex $(TEXFILE)
+	lualatex $(TEXFILE)
 	biber main
-	pdflatex $(TEXFILE)
-	pdflatex $(TEXFILE)
+	lualatex $(TEXFILE)
+	lualatex $(TEXFILE)
 
 # HTML target using pandoc
 html: $(TEXFILE) $(BIBFILE) | $(OUTPUT_DIR)

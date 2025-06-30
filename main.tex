@@ -2,11 +2,12 @@
 % Author: Lanie Molinar Carmelo
 % Usage: Fill in metadata, write content, and build with 'make pdf'
 % NOTE: This template uses biblatex with the biber backend.
+%       Compile with LuaLaTeX for best results and font support.
 %       If building manually, run:
-%         pdflatex main.tex
+%         lualatex main.tex
 %         biber main
-%         pdflatex main.tex
-%         pdflatex main.tex
+%         lualatex main.tex
+%         lualatex main.tex
 
 \documentclass[stu,12pt,floatsintext]{apa7}
 
@@ -18,8 +19,18 @@
 \addbibresource{references.bib}
 
 % Font and encoding
-\usepackage[T1]{fontenc}
-\usepackage{newtxtext,newtxmath}  % Modern Times-like font with math support
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math} % or another LuaLaTeX-compatible math font
+
+% PDF tagging for accessibility
+\hypersetup{
+  pdftitle={Your Paper Title},
+  pdfauthor={Your Name},
+  pdfsubject={Course or Assignment},
+  pdfkeywords={APA, Accessibility, Example}
+}
 
 % Document metadata
 \title{<Title>}
