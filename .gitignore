@@ -1,17 +1,34 @@
-# LaTeX build artifacts
+# LaTeX intermediate and output files
 *.aux
 *.bbl
 *.blg
+*.brf
+*.fls
+*.fdb_latexmk
 *.log
 *.out
 *.toc
-*.bcf
-*.run.xml
+*.lof
+*.lot
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
 
-# Output directory
-output/
+# PDF output
+*.pdf
 
-# Editor backup files
-*~
+# Editor/IDE files
 *.swp
-*.swo
+*.bak
+*.tmp
+*.backup
+*~
+*.DS_Store
+Thumbs.db
+
+# VS Code settings
+.vscode/
+
+# macOS metadata
+.DS_Store
