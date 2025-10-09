@@ -1,4 +1,4 @@
-# Makefile for LaTeX project with pandoc for HTML output
+# Simplified Makefile for LaTeX project with Pandoc output
 
 # Variables
 TEXFILE = main.tex
@@ -15,7 +15,7 @@ pdf:
 	lualatex $(TEXFILE)
 	lualatex $(TEXFILE)
 
-# HTML target using pandoc
+# HTML target using Pandoc (with language metadata for accessibility)
 html: $(TEXFILE) $(BIBFILE) | $(OUTPUT_DIR)
 	pandoc $(TEXFILE) \
 		--bibliography=$(BIBFILE) \
@@ -25,9 +25,12 @@ html: $(TEXFILE) $(BIBFILE) | $(OUTPUT_DIR)
 		--metadata lang=en \
 		-o $(OUTPUT_DIR)/main.html
 
-# DOCX target
+# DOCX target using Pandoc
 docx: $(BIBFILE) | $(OUTPUT_DIR)
-	pandoc $(TEXFILE) --output=$(OUTPUT_DIR)/main.docx --bibliography=$(BIBFILE) --csl=apa.csl --metadata-file=metadata.yaml
+	pandoc $(TEXFILE) \
+		--output=$(OUTPUT_DIR)/main.docx \
+		--bibliography=$(BIBFILE) \
+		--csl=apa.csl
 
 # Clean target
 clean:

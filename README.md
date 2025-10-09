@@ -4,17 +4,16 @@ This repository provides a ready-to-use template for APA 7th edition student pap
 
 - `main.tex`: Starter document using the `apa7` class and `biblatex` for references.
 - `apa.csl`: Citation Style Language file for APA 7th edition (for Pandoc/other tools).
-- `metadata.yaml`: Metadata for Pandoc or workflow automation.
 - `Makefile`: Build system for PDF, HTML, and DOCX outputs.
 - `.gitignore`: Ignores LaTeX build artifacts and editor backups.
 - `LICENSE`: MIT License.
 
 ## Getting Started
 
-1. **Install LaTeX** (TeX Live, MikTeX, etc.) and [Biber](https://ctan.org/pkg/biber).
+1. **Install LaTeX** (TeX Live, MikTeX, etc.) and Biber.
 2. **Clone this repo** and add your content to `main.tex`.
-3. **Add your references** to `references.bib` (see [Using Zotero](#using-zotero-for-references) below).
-4. **Build your document** (see [Build Process](#build-process)).
+3. **Add your references** to `references.bib` (see Using Zotero below).
+4. **Build your document** (see Build Process).
 
 ## Build Process
 
@@ -24,15 +23,36 @@ The provided `Makefile` automates the process of compiling the LaTeX document an
 - **PDF**:  
   Run `make pdf` to compile the LaTeX document into a PDF.  
   This runs the following commands in order:
-  1. `pdflatex main.tex`
+  1. `lualatex main.tex`
   2. `biber main`
-  3. `pdflatex main.tex` (twice for cross-references)
+  3. `lualatex main.tex` (twice for cross-references)
 
 - **HTML**:  
   Run `make html` to convert the LaTeX document into HTML format using Pandoc.
 
+  ```sh
+  pandoc main.tex \
+    --bibliography=references.bib \
+    --csl=apa.csl \
+    --citeproc \
+    --standalone \
+    --metadata lang=en \
+    --metadata title="Your Title" \
+    --metadata author="Your Name" \
+    -o output/main.html
+  ```
+
 - **DOCX**:  
-  Run `make docx` to convert the LaTeX document into a DOCX format using Pandoc.
+  Run `make docx` to convert the LaTeX document into DOCX format using Pandoc.
+
+  ```sh
+  pandoc main.tex \
+    --output=output/main.docx \
+    --bibliography=references.bib \
+    --csl=apa.csl \
+    --metadata title="Your Title" \
+    --metadata author="Your Name"
+  ```
 
 All outputs are placed in the `output/` directory.
 
@@ -41,37 +61,36 @@ All outputs are placed in the `output/` directory.
 If you are not using the Makefile, compile your document with:
 
 ```sh
-pdflatex main.tex
+lualatex main.tex
 biber main
-pdflatex main.tex
-pdflatex main.tex
+lualatex main.tex
+lualatex main.tex
 ```
 
 **Do not use `bibtex`—this template requires `biber` for bibliography processing.**
 
 ## Overleaf Compatibility
 
-This template works with [Overleaf](https://www.overleaf.com/):
+This template works with Overleaf:
 
 - Upload all files (`main.tex`, `references.bib`, etc.) to your Overleaf project.
 - In Overleaf, set the bibliography backend to **biber** (go to Menu → Settings → Compiler → Biber).
-- Overleaf automatically runs the correct sequence (`pdflatex → biber → pdflatex → pdflatex`).
+- Overleaf automatically runs the correct sequence (`lualatex → biber → lualatex → lualatex`).
 - You can manage your bibliography in `references.bib` as usual.
 
 ## Using Zotero for References
 
-You can use [Zotero](https://www.zotero.org/) to manage your references and export them to BibLaTeX format:
+You can use Zotero to manage your references and export them to BibLaTeX format:
 
 1. Select your references in Zotero.
 2. Right-click and choose **Export Items**.
 3. Select **BibLaTeX** as the format and save as `references.bib`.
 4. Replace or merge with the existing `references.bib` in this repository.
 
-For best results, use the [Better BibTeX](https://retorque.re/zotero-better-bibtex/) Zotero plugin, which improves citation key generation and export options.
+For best results, use the Better BibTeX Zotero plugin, which improves citation key generation and export options.
 
 ## Customization
 
-- Edit `metadata.yaml` for Pandoc-based workflows.
 - Update the document metadata in `main.tex` (`\title`, `\author`, etc.).
 - Use the `apa7` class options as needed.
 
