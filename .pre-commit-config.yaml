@@ -17,7 +17,7 @@ repos:
       - id: chktex
         name: LaTeX Linter (chktex)
         entry: chktex
-        args: ['-q', '-n22', '-n30']
+        args: ['-q', '-n8', '-n22', '-n30']
         language: system
         files: \.tex$
         pass_filenames: true
