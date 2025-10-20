@@ -18,8 +18,11 @@ All notable changes to this project will be documented in this file.
 ## [1.1.1] - 2025-10-20
 
 ### Fixed
-- Corrected release date formatting in changelog
-- Minor documentation improvements
+- GitHub Actions CI build font installation
+  - Fixed Times New Roman font installation in CI environment
+  - Added automatic EULA acceptance for msttcorefonts installer
+  - Improved font cache update with verbose logging
+  - Added font verification step to catch installation issues
 
 ## [1.1.0] - 2025-10-20
 
