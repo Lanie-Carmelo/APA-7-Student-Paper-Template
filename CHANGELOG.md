@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 - Pre-commit hooks for automated LaTeX linting and quality checks
 - Automatic release workflow triggered by version tags
 - CODEOWNERS file to automate code review assignments and clarify ownership of repository files for contributors
+- Comprehensive Copilot instructions file for improved coding agent efficiency
 
 ### Changed
 - Split CI workflow into parallel PDF, HTML, and DOCX jobs
