@@ -12,3 +12,4 @@ pdfversion
 pdfstandard
 testphase
 LuaLaTeX
+biblatex
