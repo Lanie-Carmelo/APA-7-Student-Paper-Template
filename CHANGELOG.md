@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Pre-commit hooks for automated LaTeX linting and quality checks
 - Automatic release workflow triggered by version tags
-- CODEOWNERS file for repository management
+- CODEOWNERS file to automate code review assignments and clarify ownership of repository files for contributors
 
 ### Changed
 - Split CI workflow into parallel PDF, HTML, and DOCX jobs
@@ -48,5 +48,4 @@ All notable changes to this project will be documented in this file.
 [Unreleased]: https://github.com/lanie-carmelo/apa-7-student-paper-template/compare/v1.1.1...HEAD
 [1.1.1]: https://github.com/lanie-carmelo/apa-7-student-paper-template/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/lanie-carmelo/apa-7-student-paper-template/compare/v1.0.0...v1.1.0
-[1.0.0]:
-    https://github.com/lanie-carmelo/apa-7-student-paper-template/releases/tag/v1.0.0
+[1.0.0]: https://github.com/lanie-carmelo/apa-7-student-paper-template/releases/tag/v1.0.0
