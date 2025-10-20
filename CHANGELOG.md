@@ -55,6 +55,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - MIT License
 - CONTRIBUTING.md with contribution guidelines
 
-[Unreleased]: https://github.com/lanie-carmelo/apa-7-student-paper-template/compare/v1.1.0...HEAD
-[v1.0.0]: https://github.com/lanie-carmelo/apa-7-student-paper-template/releases/tag/v1.0.0
-[v1.1.0]: https://github.com/lanie-carmelo/apa-7-student-paper-template/releases/tag/v1.1.0
+[Unreleased]:
+    https://github.com/lanie-carmelo/apa-7-student-paper-template/compare/v1.1.0...HEAD
+[v1.0.0]:
+    https://github.com/lanie-carmelo/apa-7-student-paper-template/releases/tag/v1.0.0
+[v1.1.0]:
+    https://github.com/lanie-carmelo/apa-7-student-paper-template/releases/tag/v1.1.0
+[v1.1.1]:
+    https://github.com/lanie-carmelo/apa-7-student-paper-template/releases/tag/v1.1.1
