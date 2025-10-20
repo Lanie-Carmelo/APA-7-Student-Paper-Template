@@ -35,7 +35,6 @@ Thumbs.db
 
 # Windows Zone.Identifier files
 *:Zone.Identifier
-*_Zone.Identifier
 
 # Additional LaTeX files
 *.idx
