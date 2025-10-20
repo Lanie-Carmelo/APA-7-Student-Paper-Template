@@ -13,3 +13,6 @@ pdfstandard
 testphase
 LuaLaTeX
 biblatex
+CODEOWNERS
+gitignore
+msttcorefonts
