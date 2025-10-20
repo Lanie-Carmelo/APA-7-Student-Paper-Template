@@ -25,9 +25,14 @@ jobs:
           packages: texlive-luatex texlive-bibtex-extra biber texlive-fonts-extra texlive-latex-extra chktex pandoc fontconfig ttf-mscorefonts-installer
           version: 1.0
 
-      - name: Install LaTeX and tooling
+      - name: Workaround libpaper1 bug
         run: |
           sudo apt-get update
+          sudo apt-get install --reinstall libpaper1 || true
+          sudo dpkg --configure -a || true
+
+      - name: Install LaTeX and tooling
+        run: |
           sudo apt-get install -y texlive-luatex texlive-bibtex-extra biber texlive-fonts-extra texlive-latex-extra chktex pandoc fontconfig
 
       - name: Install Times New Roman font
