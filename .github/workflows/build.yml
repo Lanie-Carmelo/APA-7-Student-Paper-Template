@@ -1,0 +1,60 @@
+name: Build LaTeX Document
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Install LaTeX
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y texlive-luatex texlive-bibtex-extra biber texlive-fonts-extra texlive-latex-extra chktex pandoc
+    
+    - name: Install Times New Roman font
+      run: |
+        sudo apt-get install -y ttf-mscorefonts-installer
+        fc-cache -f
+    
+    - name: Run lint check
+      run: make lint || true
+      continue-on-error: true
+    
+    - name: Build PDF
+      run: make pdf
+    
+    - name: Build HTML
+      run: make html
+    
+    - name: Build DOCX
+      run: make docx
+    
+    - name: Upload PDF artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: output-pdf
+        path: output/main.pdf
+        retention-days: 30
+    
+    - name: Upload HTML artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: output-html
+        path: output/main.html
+        retention-days: 30
+    
+    - name: Upload DOCX artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: output-docx
+        path: output/main.docx
+        retention-days: 30
