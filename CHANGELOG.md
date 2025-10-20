@@ -16,6 +16,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Expand Makefile with optional targets for archiving DOCX and HTML outputs
 - Add sample `main.tex` with placeholder content and comments for new users
 
+## [v1.1.1] - 2025-10-20
+
+### Fixed
+
+- GitHub Actions CI build
+  - Fixed Times New Roman font installation in CI environment
+  - Added automatic EULA acceptance for msttcorefonts installer
+  - Improved font cache update with verbose logging
+  - Added font verification step to catch installation issues
+
 ## [v1.1.0] - 2025-10-20
 
 ### Added
