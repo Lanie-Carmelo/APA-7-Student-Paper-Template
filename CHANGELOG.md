@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- CSpell configuration file (.cspell.json) for spell checking with LaTeX-aware ignore patterns
+- Typography note in README documenting en dash usage and screen reader behavior for APA 7 compliance
+
+### Changed
+- Added explicit Keep a Changelog and Semantic Versioning references to CHANGELOG header
+
 ## [1.2.0] - 2025-10-20
 
 ### Added
