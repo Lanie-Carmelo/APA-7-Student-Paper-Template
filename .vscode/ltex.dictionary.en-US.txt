@@ -7,3 +7,8 @@ NONINFRINGEMENT
 Zotero
 biber
 BibLaTeX
+lang
+pdfversion
+pdfstandard
+testphase
+LuaLaTeX

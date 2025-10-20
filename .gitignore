@@ -32,3 +32,40 @@ Thumbs.db
 
 # macOS metadata
 .DS_Store
+
+# Windows Zone.Identifier files
+*:Zone.Identifier
+*_Zone.Identifier
+
+# Additional LaTeX files
+*.idx
+*.ind
+*.ilg
+*.glo
+*.gls
+*.glg
+*.ist
+*.acn
+*.acr
+*.alg
+*.xdv
+*.run.xml
+*.bcf
+
+# Bibliography files (if auto-generated)
+*-blx.bib
+
+# Glossaries
+*.glsdefs
+
+# Build directories (if you use them)
+build/
+out/
+dist/
+
+# LaTeX distribution specific
+*.synctex(busy)
+*.pdfsync
+
+# Pandoc HTML artifacts
+*-luamml-mathml.html

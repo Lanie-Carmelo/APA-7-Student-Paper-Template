@@ -81,10 +81,14 @@ You can use Zotero to manage your references and export them to BibLaTeX format:
 
 1. Select your references in Zotero.
 2. Right-click and choose **Export Items**.
-3. Select **BibLaTeX** as the format and save as `references.bib`.
+3. Select **Better BibLaTeX** (preferred) or **BibLaTeX** as the format and save as `references.bib`.
 4. Replace or merge with the existing `references.bib` in this repository.
 
-For best results, use the Better BibTeX Zotero plugin, which improves citation key generation and export options.
+**Note:** Install the [Better BibTeX](https://retorque.re/zotero-better-bibtex/) plugin for improved citation keys and automatic updates.
+
+**Zotero Auto-Sync (Optional):**
+- Right-click your collection → Export Collection → Enable "Keep Updated"
+- Zotero will automatically update `references.bib` when you add/modify entries
 
 ## Customization
 
@@ -106,3 +110,27 @@ If you encounter issues:
 ## License
 
 MIT License.
+
+## Features
+
+- ✅ **APA 7th Edition Formatting**: Manual formatting following official guidelines
+- ✅ **Accessible PDFs**: PDF/UA-1 compliant with proper tagging
+- ✅ **Multiple Output Formats**: PDF, HTML, and DOCX via Pandoc
+- ✅ **Automated Builds**: Makefile with linting, viewing, and archiving
+- ✅ **Biber Backend**: Modern bibliography processing (not BibTeX)
+- ✅ **Overleaf Compatible**: Works seamlessly with Overleaf
+- ✅ **LuaLaTeX**: Full Unicode and modern font support
+
+## File Structure
+
+```
+├── main.tex              # Main LaTeX document
+├── references.bib        # Bibliography database
+├── apa.csl              # APA 7 citation style for Pandoc
+├── Makefile             # Build automation
+├── add-refs-heading.lua # Pandoc filter for references heading
+├── .gitignore           # Git ignore patterns
+├── README.md            # This file
+├── CONTRIBUTING.md      # Contribution guidelines
+└── LICENSE              # MIT License
+```
