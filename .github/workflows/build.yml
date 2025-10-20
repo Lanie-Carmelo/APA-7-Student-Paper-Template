@@ -29,7 +29,8 @@ jobs:
           fc-list | grep -i "times new roman" || echo "Warning: Times New Roman not found"
 
       - name: Run lint check
-        run: make lint || true
+        run: make lint
+        continue-on-error: true
 
       - name: Build PDF
         run: make pdf
