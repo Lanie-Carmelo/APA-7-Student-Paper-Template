@@ -14,15 +14,20 @@ All notable changes to this project will be documented in this file.
 - Made HTML and DOCX builds non-blocking (only PDF is required)
 - Improved .gitignore patterns
 
-## [1.1.1] - 2025-XX-XX
+## [1.1.1] - 2025-10-20
 
-### Changed
-- Updated documentation and minor fixes
+### Fixed
+- Corrected release date formatting in changelog
+- Minor documentation improvements
 
 ## [1.1.0] - 2025-10-20
 
 ### Added
-- New features and improvements
+- Support for DOCX output via Pandoc
+- Enhanced PDF/UA accessibility compliance checks
+- Additional citation examples in `main.tex`
+- Improved build scripts for multi-format output
+- Expanded documentation for contributors
 
 ## [1.0.0] - 2025-10-20
 
