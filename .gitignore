@@ -53,6 +53,7 @@ Thumbs.db
 
 # Bibliography files (if auto-generated)
 *-blx.bib
+*-SAVE-ERROR
 
 # Glossaries
 *.glsdefs
