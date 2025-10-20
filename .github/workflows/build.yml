@@ -18,12 +18,19 @@ jobs:
     - name: Install LaTeX
       run: |
         sudo apt-get update
-        sudo apt-get install -y texlive-luatex texlive-bibtex-extra biber texlive-fonts-extra texlive-latex-extra chktex pandoc
+        sudo apt-get install -y texlive-luatex texlive-bibtex-extra biber texlive-fonts-extra texlive-latex-extra chktex pandoc fontconfig
     
     - name: Install Times New Roman font
       run: |
+        # Accept EULA for MS core fonts
+        echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
         sudo apt-get install -y ttf-mscorefonts-installer
-        fc-cache -f
+        
+        # Update font cache
+        sudo fc-cache -f -v
+        
+        # Verify Times New Roman is available
+        fc-list | grep -i "times new roman" || echo "Warning: Times New Roman not found"
     
     - name: Run lint check
       run: make lint || true
