@@ -4,7 +4,14 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.2.0] - 2025-10-20
+
 ### Added
+- Version tracking in main.tex header with repository URL and attribution guidelines
+- CITATION.cff file for machine-readable citation metadata
+- VERSION file for easy version tracking
+- Citation and attribution section in README with BibTeX example
+- Guidance for derivative works and template attribution
 - Pre-commit hooks for automated LaTeX linting and quality checks
 - Automatic release workflow triggered by version tags
 - CODEOWNERS file to automate code review assignments and clarify ownership of repository files for contributors
@@ -49,7 +56,8 @@ All notable changes to this project will be documented in this file.
 - MIT License
 - CONTRIBUTING.md with contribution guidelines
 
-[Unreleased]: https://github.com/lanie-carmelo/apa-7-student-paper-template/compare/v1.1.1...HEAD
+[Unreleased]: https://github.com/lanie-carmelo/apa-7-student-paper-template/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/lanie-carmelo/apa-7-student-paper-template/compare/v1.1.1...v1.2.0
 [1.1.1]: https://github.com/lanie-carmelo/apa-7-student-paper-template/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/lanie-carmelo/apa-7-student-paper-template/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/lanie-carmelo/apa-7-student-paper-template/releases/tag/v1.0.0
