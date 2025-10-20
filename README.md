@@ -176,7 +176,7 @@ MIT License.
 If you use this template for your academic work, consider acknowledging it:
 
 **Option 1: In your paper's acknowledgments (informal):**
-> This paper was formatted using the APA 7 Student Paper LaTeX Template (v1.1.1) by Lanie Molinar Carmelo, available at https://github.com/Lanie-Carmelo/APA-7-Student-Paper-Template
+> This paper was formatted using the APA 7 Student Paper LaTeX Template (v1.2.0) by Lanie Molinar Carmelo, available at https://github.com/Lanie-Carmelo/APA-7-Student-Paper-Template
 
 **Option 2: In technical documentation or derivative works:**
 ```bibtex
@@ -187,7 +187,7 @@ If you use this template for your academic work, consider acknowledging it:
   publisher = {GitHub},
   journal = {GitHub repository},
   howpublished = {\url{https://github.com/Lanie-Carmelo/APA-7-Student-Paper-Template}},
-  note = {Version 1.1.1}
+  note = {Version 1.2.0}
 }
 ```
 
