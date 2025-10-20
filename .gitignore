@@ -15,6 +15,9 @@
 *.snm
 *.vrb
 
+# Auto-generated files
+version.tex
+
 # PDF output
 *.pdf
 
