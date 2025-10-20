@@ -19,11 +19,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
 
+      - name: Accept MS Core Fonts EULA
+        run: |
+          echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
+
       - name: Cache apt packages
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: texlive-luatex texlive-bibtex-extra biber texlive-fonts-extra texlive-latex-extra chktex fontconfig ttf-mscorefonts-installer
-          version: 1.1
+          version: 1.2
 
       - name: Workaround libpaper1 bug
         run: |
@@ -33,12 +37,10 @@ jobs:
 
       - name: Install LaTeX and tooling
         run: |
-          sudo apt-get install -y texlive-luatex texlive-bibtex-extra biber texlive-fonts-extra texlive-latex-extra chktex fontconfig
+          sudo apt-get install -y texlive-luatex texlive-bibtex-extra biber texlive-fonts-extra texlive-latex-extra chktex fontconfig ttf-mscorefonts-installer
 
-      - name: Install Times New Roman font
+      - name: Rebuild font cache
         run: |
-          echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
-          sudo apt-get install -y ttf-mscorefonts-installer
           sudo fc-cache -f -v
           fc-list | grep -i "times new roman" || echo "Warning: Times New Roman not found"
 
