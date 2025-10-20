@@ -167,5 +167,39 @@ MIT License.
 ├── .gitignore           # Git ignore patterns
 ├── README.md            # This file
 ├── CONTRIBUTING.md      # Contribution guidelines
+├── CHANGELOG.md         # Version history and release notes
 └── LICENSE              # MIT License
 ```
+
+## Citation and Attribution
+
+If you use this template for your academic work, consider acknowledging it:
+
+**Option 1: In your paper's acknowledgments (informal):**
+> This paper was formatted using the APA 7 Student Paper LaTeX Template (v1.1.1) by Lanie Molinar Carmelo, available at https://github.com/Lanie-Carmelo/APA-7-Student-Paper-Template
+
+**Option 2: In technical documentation or derivative works:**
+```bibtex
+@misc{carmelo2025apa7template,
+  author = {Carmelo, Lanie Molinar},
+  title = {APA 7 Student Paper LaTeX Template},
+  year = {2025},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/Lanie-Carmelo/APA-7-Student-Paper-Template}},
+  note = {Version 1.1.1}
+}
+```
+
+**Option 3: For derivative templates:**
+- Keep the version header in `main.tex` intact
+- Document your changes in your own CHANGELOG
+- Link back to this repository in your README
+- Consider contributing improvements back via pull request
+
+### Why Attribution Matters
+
+- Helps other students discover accessible LaTeX tools
+- Supports ongoing development and maintenance
+- Acknowledges accessibility advocacy in academic publishing
+- Enables tracking of template usage and impact
