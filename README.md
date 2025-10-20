@@ -1,12 +1,41 @@
 # APA 7 Student Paper LaTeX Template
 
-This repository provides a ready-to-use template for APA 7th edition student papers, written in LaTeX. It emphasizes accessibility, automation, and academic integrity. It includes:
+**Maintained by Lanie Molinar Carmelo**
 
-- `main.tex`: Starter document using manual APA formatting, PDF/UA metadata, and `biblatex` for references.
+- 🌐 [Website](https://laniecarmelo.tech)
+- 🐘 [Mastodon (Most active)](https://allovertheplace.ca/@RareBird15)
+- 💼 [LinkedIn](https://www.linkedin.com/in/laniecarmelo/)
+- 🧑‍💻 [GitHub Profile](https://github.com/lanie-carmelo)
+
+Built for blind and sighted students alike, this template emphasizes accessibility, automation, and academic integrity in APA 7 academic writing.
+
+This repository provides a ready-to-use template for APA 7th edition student
+papers, written in LaTeX. It emphasizes accessibility, automation, and academic
+integrity. This template uses the biblatex package with the biber backend (not
+BibTeX). It includes:
+
+- `main.tex`: Starter document using manual APA formatting, PDF/UA metadata, and Biber for bibliography processing.
 - `apa.csl`: Citation Style Language file for APA 7th edition (used by Pandoc).
 - `Makefile`: Build system for PDF, HTML, DOCX, linting, viewing, and archiving.
 - `.gitignore`: Ignores LaTeX build artifacts and editor backups.
 - `LICENSE`: MIT License.
+
+## Why This Exists
+
+I originally built this for my own coursework as a blind Computer Science
+student. Over time, I expanded it into a reusable, standards-compliant template
+to support accessible academic publishing.
+
+## Who This is For
+
+This template is designed for students, researchers, and accessibility advocates
+who want to produce APA-compliant documents using LaTeX—whether working locally
+or in Overleaf.
+
+## Accessibility Tools Used
+
+This template was built with screen readers like NVDA and JAWS using Microsoft Visual
+Studio Code.
 
 ## Getting Started
 
@@ -105,7 +134,12 @@ If you encounter issues:
 3. **Linting Errors**: Run `make lint` to catch syntax issues and missing references.
 4. **Log Files**: Review `.log` files for warnings or errors.
 5. **Overleaf**: Ensure the bibliography tool is set to Biber in project settings.
-6. **Ask for Help**: Reach out via LaTeX forums, Stack Exchange, or GitHub Issues.
+6. **Ask for Help**: Reach out via LaTeX forums, Stack Exchange, or GitHub
+   Issues.
+
+## Contributing
+
+Contributions and feedback are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## License
 
@@ -113,6 +147,7 @@ MIT License.
 
 ## Features
 
+- ✅ PDF/UA-1 tagging: Ensures screen reader compatibility and semantic structure for accessible academic publishing.
 - ✅ **APA 7th Edition Formatting**: Manual formatting following official guidelines
 - ✅ **Accessible PDFs**: PDF/UA-1 compliant with proper tagging
 - ✅ **Multiple Output Formats**: PDF, HTML, and DOCX via Pandoc
