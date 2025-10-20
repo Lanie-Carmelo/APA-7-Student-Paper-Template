@@ -1,10 +1,10 @@
 # APA 7 Student Paper LaTeX Template
 
-This repository provides a ready-to-use template for APA 7th edition student papers, written in LaTeX. It includes:
+This repository provides a ready-to-use template for APA 7th edition student papers, written in LaTeX. It emphasizes accessibility, automation, and academic integrity. It includes:
 
-- `main.tex`: Starter document using the `apa7` class and `biblatex` for references.
-- `apa.csl`: Citation Style Language file for APA 7th edition (for Pandoc/other tools).
-- `Makefile`: Build system for PDF, HTML, and DOCX outputs.
+- `main.tex`: Starter document using manual APA formatting, PDF/UA metadata, and `biblatex` for references.
+- `apa.csl`: Citation Style Language file for APA 7th edition (used by Pandoc).
+- `Makefile`: Build system for PDF, HTML, DOCX, linting, viewing, and archiving.
 - `.gitignore`: Ignores LaTeX build artifacts and editor backups.
 - `LICENSE`: MIT License.
 
@@ -13,48 +13,45 @@ This repository provides a ready-to-use template for APA 7th edition student pap
 1. **Install LaTeX** (TeX Live, MikTeX, etc.) and Biber.
 2. **Clone this repo** and add your content to `main.tex`.
 3. **Add your references** to `references.bib` (see Using Zotero below).
-4. **Build your document** (see Build Process).
+4. **Build your document** using the Makefile (see Build Process).
 
 ## Build Process
 
-The provided `Makefile` automates the process of compiling the LaTeX document and generating outputs in different formats.  
+The provided `Makefile` automates compilation and conversion to multiple formats.  
 **Note:** This template uses `biblatex` with the `biber` backend (not BibTeX).
 
-- **PDF**:  
-  Run `make pdf` to compile the LaTeX document into a PDF.  
-  This runs the following commands in order:
-  1. `lualatex main.tex`
-  2. `biber main`
-  3. `lualatex main.tex` (twice for cross-references)
+### Common Targets
 
-- **HTML**:  
-  Run `make html` to convert the LaTeX document into HTML format using Pandoc.
+| Target        | Description                                                                 |
+|---------------|-----------------------------------------------------------------------------|
+| `pdf`         | Compiles the LaTeX document into a tagged, accessible PDF using LuaLaTeX.   |
+| `pdf-pandoc`  | Generates a PDF using Pandoc (alternative method).                          |
+| `html`        | Converts the LaTeX document to HTML using Pandoc with APA citation styling. |
+| `docx`        | Converts the LaTeX document to DOCX using Pandoc.                           |
+| `lint`        | Runs `chktex` and checks `.log` for missing citations or references.        |
+| `check`       | Displays metadata and integrity info for the compiled PDF.                  |
+| `view`        | Opens the final PDF in your default Windows viewer (e.g., Acrobat).         |
+| `refresh`     | Reopens the PDF to simulate a manual refresh.                               |
+| `build`       | Runs `lint`, compiles the PDF, and opens it—ideal for final review.         |
+| `watch`       | Watches for changes to `.tex` or `.bib` and rebuilds automatically.         |
+| `submissions` | Copies the final PDF to a `submissions/` folder with a timestamp.           |
+| `status`      | Lists output file sizes and last modified times.                            |
+| `clean`       | Removes LaTeX build artifacts and the output directory.                     |
+| `distclean`   | Removes all generated files, including outputs and submissions.             |
 
-  ```sh
-  pandoc main.tex \
-    --bibliography=references.bib \
-    --csl=apa.csl \
-    --citeproc \
-    --standalone \
-    --metadata lang=en \
-    --metadata title="Your Title" \
-    --metadata author="Your Name" \
-    -o output/main.html
-  ```
+To use a target, run:
 
-- **DOCX**:  
-  Run `make docx` to convert the LaTeX document into DOCX format using Pandoc.
+```sh
+make <target>
+```
 
-  ```sh
-  pandoc main.tex \
-    --output=output/main.docx \
-    --bibliography=references.bib \
-    --csl=apa.csl \
-    --metadata title="Your Title" \
-    --metadata author="Your Name"
-  ```
+Example:
 
-All outputs are placed in the `output/` directory.
+```sh
+make build
+```
+
+All outputs are placed in the `output/` directory. Archived PDFs are stored in `submissions/`.
 
 ### Manual Build Steps
 
@@ -74,7 +71,7 @@ lualatex main.tex
 This template works with Overleaf:
 
 - Upload all files (`main.tex`, `references.bib`, etc.) to your Overleaf project.
-- In Overleaf, set the bibliography backend to **biber** (go to Menu → Settings → Compiler → Biber).
+- In Overleaf, set the bibliography backend to **biber** (Menu → Settings → Compiler → Biber).
 - Overleaf automatically runs the correct sequence (`lualatex → biber → lualatex → lualatex`).
 - You can manage your bibliography in `references.bib` as usual.
 
@@ -92,17 +89,19 @@ For best results, use the Better BibTeX Zotero plugin, which improves citation k
 ## Customization
 
 - Update the document metadata in `main.tex` (`\title`, `\author`, etc.).
-- Use the `apa7` class options as needed.
+- Use the `biblatex` options and APA formatting as needed.
+- Modify the Makefile to suit your workflow or add new targets.
 
 ## Troubleshooting
 
 If you encounter issues:
 
-1. **Check LaTeX Installation**: Ensure you have a working LaTeX installation (TeX Live, MikTeX, etc.) and that all required packages are installed.
-2. **Biber Issues**: If you have problems with citations or bibliography, make sure Biber is installed and properly configured.
-3. **Log Files**: Check the `.log` files generated during the build process for error messages and warnings.
-4. **Overleaf**: Ensure the bibliography tool is set to Biber in project settings.
-5. **Ask for Help**: If you're stuck, consider asking for help on forums like Stack Exchange or the LaTeX community.
+1. **Check LaTeX Installation**: Ensure you have a working LaTeX installation and all required packages.
+2. **Biber Issues**: If citations or bibliography fail, verify that Biber is installed and properly configured.
+3. **Linting Errors**: Run `make lint` to catch syntax issues and missing references.
+4. **Log Files**: Review `.log` files for warnings or errors.
+5. **Overleaf**: Ensure the bibliography tool is set to Biber in project settings.
+6. **Ask for Help**: Reach out via LaTeX forums, Stack Exchange, or GitHub Issues.
 
 ## License
 

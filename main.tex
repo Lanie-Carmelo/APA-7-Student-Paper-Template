@@ -1,57 +1,85 @@
-% APA 7 Student Paper Template
-% Author: Lanie Molinar Carmelo
-% Usage: Fill in metadata, write content, and build with 'make pdf'
-% NOTE: This template uses biblatex with the biber backend.
-%       Compile with LuaLaTeX for best results and font support.
-%       If building manually, run:
-%         lualatex main.tex
-%         biber main
-%         lualatex main.tex
-%         lualatex main.tex
+\DocumentMetadata{
+  lang=en-US,
+  pdfversion=1.7,
+  pdfstandard=ua-1,
+  testphase={phase-III}
+}
 
-\documentclass[stu,12pt,floatsintext]{apa7}
+\documentclass[12pt,letterpaper]{article}
 
-% Language and citation setup
-\usepackage[american]{babel}
-\usepackage{csquotes}
-\usepackage[style=apa,sortcites=true,sorting=nyt,backend=biber]{biblatex}
-\DeclareLanguageMapping{american}{american-apa}
-\addbibresource{references.bib}
+% Layout and spacing
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\doublespacing
+\sloppy
+\usepackage{url}
+\urlstyle{same}
 
 % Font and encoding
 \usepackage{fontspec}
 \setmainfont{Times New Roman}
 \usepackage{unicode-math}
-\setmathfont{Latin Modern Math} % or another LuaLaTeX-compatible math font
+\setmathfont{Latin Modern Math}
 
-% PDF tagging for accessibility
+% Header (APA-style)
+\usepackage{fancyhdr}
+\setlength{\headheight}{14.5pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{RUNNING HEAD: <Short Title>}
+\fancyhead[R]{\thepage}
+
+% Section formatting (APA: no numbering)
+\setcounter{secnumdepth}{0}
+
+% Language and citation setup
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[style=apa,backend=biber,sortcites=true,sorting=nyt]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+\addbibresource{references.bib}
+
+% Accessibility and metadata
+\usepackage{hyperref}
 \hypersetup{
-  pdftitle={Your Paper Title},
-  pdfauthor={Your Name},
-  pdfsubject={Course or Assignment},
-  pdfkeywords={APA, Accessibility, Example}
+  pdftitle={<Title>},
+  pdfauthor={Lanie Molinar},
+  pdfsubject={<Course or Assignment>},
+  pdfkeywords={APA, Accessibility, Template, <Keywords>},
+  pdflang={en-US},
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+  bookmarksnumbered=true,
+  pdfstartview=FitH
 }
 
-% Document metadata
+% Optional: Silence biblatex footnote warning
+\usepackage{silence}
+\WarningFilter{biblatex}{Patching footnotes failed}
+
 \title{<Title>}
-\author{<Author>}
-\authorsaffiliations{<Institution>}
-\duedate{<Due Date>}
-\course{<Course>}
-\professor{<Professor>}
+\author{Lanie Molinar\\<Institution>}
+\date{<Due Date>}
 
 \begin{document}
 
 \maketitle
-\thispagestyle{plain}
-\pagestyle{plain}
+
+\begin{center}
+<Course Name>\\
+Instructor: <Professor Name>
+\end{center}
+
+\newpage
 
 \section{<Section Title>}
 
-Here is a citation to a sample source \parencite{sample2024}.
+Here is a citation to a sample source \parencite{smith2020}.
 
-\section{References}
+\newpage
 
-\printbibliography
+\printbibliography[heading=bibintoc]
 
 \end{document}
