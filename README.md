@@ -46,7 +46,7 @@ Studio Code.
 
 ## Build Process
 
-The provided `Makefile` automates compilation and conversion to multiple formats.  
+The provided `Makefile` automates compilation and conversion to multiple formats.
 **Note:** This template uses `biblatex` with the `biber` backend (not BibTeX).
 
 ### Common Targets

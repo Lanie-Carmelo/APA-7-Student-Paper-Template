@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         Thanks for suggesting a feature!
-  
+
   - type: textarea
     id: problem
     attributes:
@@ -16,7 +16,7 @@ body:
       placeholder: I'm always frustrated when...
     validations:
       required: true
-  
+
   - type: textarea
     id: solution
     attributes:
@@ -24,13 +24,13 @@ body:
       description: How would you like this to work?
     validations:
       required: true
-  
+
   - type: textarea
     id: alternatives
     attributes:
       label: Alternatives Considered
       description: Have you considered any alternative solutions?
-  
+
   - type: checkboxes
     id: apa-compliance
     attributes:
