@@ -8,60 +8,81 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  pdf:
+    name: Build PDF
     runs-on: ubuntu-latest
-    
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v5
-    
-    - name: Install LaTeX
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y texlive-luatex texlive-bibtex-extra biber texlive-fonts-extra texlive-latex-extra chktex pandoc fontconfig
-    
-    - name: Install Times New Roman font
-      run: |
-        # Accept EULA for MS core fonts
-        echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
-        sudo apt-get install -y ttf-mscorefonts-installer
-        
-        # Update font cache
-        sudo fc-cache -f -v
-        
-        # Verify Times New Roman is available
-        fc-list | grep -i "times new roman" || echo "Warning: Times New Roman not found"
-    
-    - name: Run lint check
-      run: make lint || true
-      continue-on-error: true
-    
-    - name: Build PDF
-      run: make pdf
-    
-    - name: Build HTML
-      run: make html
-    
-    - name: Build DOCX
-      run: make docx
-    
-    - name: Upload PDF artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: output-pdf
-        path: output/main.pdf
-        retention-days: 30
-    
-    - name: Upload HTML artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: output-html
-        path: output/main.html
-        retention-days: 30
-    
-    - name: Upload DOCX artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: output-docx
-        path: output/main.docx
-        retention-days: 30
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Install LaTeX and tooling
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-luatex texlive-bibtex-extra biber texlive-fonts-extra texlive-latex-extra chktex pandoc fontconfig
+
+      - name: Install Times New Roman font
+        run: |
+          # Accept EULA for MS core fonts
+          echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
+          sudo apt-get install -y ttf-mscorefonts-installer
+          sudo fc-cache -f -v
+          fc-list | grep -i "times new roman" || echo "Warning: Times New Roman not found"
+
+      - name: Run lint check
+        run: make lint
+        continue-on-error: true
+
+      - name: Build PDF
+        run: make pdf
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: output-pdf
+          path: output/main.pdf
+          retention-days: 30
+
+  html:
+    name: Build HTML
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Install tooling for HTML (pandoc)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc fontconfig
+
+      - name: Build HTML
+        run: make html
+
+      - name: Upload HTML artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: output-html
+          path: output/main.html
+          retention-days: 30
+
+  docx:
+    name: Build DOCX
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Install tooling for DOCX (pandoc)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc fontconfig
+
+      - name: Build DOCX
+        run: make docx
+
+      - name: Upload DOCX artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: output-docx
+          path: output/main.docx
+          retention-days: 30
+          
