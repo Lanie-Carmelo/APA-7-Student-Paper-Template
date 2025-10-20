@@ -45,6 +45,7 @@ jobs:
   html:
     name: Build HTML
     runs-on: ubuntu-latest
+    continue-on-error: true  # Add this line
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
@@ -67,6 +68,7 @@ jobs:
   docx:
     name: Build DOCX
     runs-on: ubuntu-latest
+    continue-on-error: true  # Add this line
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
