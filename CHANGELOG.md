@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.0] - 2025-10-20
+
 ### Added
 - CSpell configuration file (.cspell.json) for spell checking with LaTeX-aware ignore patterns
 - Typography note in README documenting en dash usage and screen reader behavior for APA 7 compliance
@@ -66,7 +68,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - MIT License
 - CONTRIBUTING.md with contribution guidelines
 
-[Unreleased]: https://github.com/lanie-carmelo/apa-7-student-paper-template/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/lanie-carmelo/apa-7-student-paper-template/compare/v1.3.0...HEAD
+[1.3.0]: https://github.com/lanie-carmelo/apa-7-student-paper-template/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/lanie-carmelo/apa-7-student-paper-template/compare/v1.1.1...v1.2.0
 [1.1.1]: https://github.com/lanie-carmelo/apa-7-student-paper-template/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/lanie-carmelo/apa-7-student-paper-template/compare/v1.0.0...v1.1.0
