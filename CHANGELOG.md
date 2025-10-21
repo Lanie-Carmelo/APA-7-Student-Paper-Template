@@ -2,7 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
 ## [Unreleased]
+
+### Added
+- CSpell configuration file (.cspell.json) for spell checking with LaTeX-aware ignore patterns
+- Typography note in README documenting en dash usage and screen reader behavior for APA 7 compliance
+
+### Changed
+- Added explicit Keep a Changelog and Semantic Versioning references to CHANGELOG header
 
 ## [1.2.0] - 2025-10-20
 
