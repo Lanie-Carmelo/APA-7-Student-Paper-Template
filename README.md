@@ -7,9 +7,15 @@
 - 💼 [LinkedIn](https://www.linkedin.com/in/laniecarmelo/)
 - 🧑‍💻 [GitHub Profile](https://github.com/lanie-carmelo)
 
-![Version](https://img.shields.io/badge/version-1.5.0-blue)
-[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://pre-commit.com/)
-📦 [Release Notes](CHANGELOG.md)
+## Accessibility Note
+
+All badges and links in this README are designed to be screen reader-friendly. If you encounter any issues with NVDA, JAWS, or VoiceOver, feel free to open an issue or reach out.
+
+## Project Status
+
+[![Version: 1.5.0](https://img.shields.io/badge/version-1.5.0-blue)](https://github.com/Lanie-Carmelo/APA-7-Student-Paper-Template/releases/tag/v1.5.0) 
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://pre-commit.com/) 
+[Release Notes](CHANGELOG.md)
 
 Built for blind and sighted students alike, this template emphasizes accessibility, automation, and academic integrity in APA 7 academic writing.
 
