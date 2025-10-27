@@ -9,7 +9,7 @@
 
 ## Accessibility Note
 
-All badges and links in this README are designed to be screen reader-friendly. If you encounter any issues with NVDA, JAWS, or VoiceOver, feel free to open an issue or reach out.
+All badges and links in this README are designed to be screen-reader-friendly. If you encounter any issues with NVDA, JAWS, or VoiceOver, feel free to open an issue or reach out.
 
 ## Project Status
 

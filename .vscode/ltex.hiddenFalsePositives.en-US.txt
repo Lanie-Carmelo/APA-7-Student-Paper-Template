@@ -2,3 +2,4 @@
 {"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QChanged\nSplit CI workflow into parallel PDF, HTML, and DOCX jobs\nMade HTML and DOCX builds non-blocking (only PDF is required)\nImproved .gitignore patterns\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QChanged\nSplit CI workflow into parallel PDF, HTML, and DOCX jobs\nMade HTML and DOCX builds non-blocking (only PDF is required)\nImproved .gitignore patterns\\E$"}
 {"rule":"WHITESPACE_RULE","sentence":"^\\QVersion: 1.5.0  pre-commit  📦 Release Notes\\E$"}
+{"rule":"WHITESPACE_RULE","sentence":"^\\QVersion: 1.5.0  pre-commit  Release Notes\\E$"}
