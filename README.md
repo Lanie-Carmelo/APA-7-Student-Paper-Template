@@ -53,6 +53,9 @@ En dashes are used here for APA compliance and professional typography, not for 
 4. **Build your document** using the Makefile (see Build Process).
 
 ## Build Process
+### LaTeX Linting with ChkTeX
+
+ChkTeX linting is supported, but configuration must be set via command line options or comments in your `.tex` files. The `.chktexrc` file is no longer included, as its options are not supported by ChkTeX. Use `% chktex <number>` comments or `-n <number>` options to suppress warnings as needed.
 
 The provided `Makefile` automates compilation and conversion to multiple formats.
 **Note:** This template uses `biblatex` with the `biber` backend (not BibTeX).

@@ -1,7 +1,7 @@
 % APA 7 Student Paper Template
 % Author: Lanie Molinar Carmelo
 % Repository: https://github.com/Lanie-Carmelo/APA-7-Student-Paper-Template
-% Template Version: 1.4.0 (2025-10-27)
+% Template Version: 1.5.0 (2025-10-27)
 % License: MIT License - https://opensource.org/licenses/MIT
 %
 % ATTRIBUTION: If you use this template, please consider:
@@ -24,8 +24,8 @@
 % Layout and spacing
 \usepackage[margin=1in]{geometry}
 \usepackage{setspace}
-\doublespacing%
-\usepackage{microtype} % Improves typography
+\doublespacing % Spacing setup for APA
+\usepackage{microtype}
 \usepackage{url}
 \urlstyle{same}
 
@@ -46,7 +46,7 @@
 \fancyhf{}
 \fancyhead[L]{<SHORT TITLE>}  % No "RUNNING HEAD:" for student papers
 \fancyhead[R]{\thepage}
-\renewcommand{\headrulewidth}{0pt} % Remove header line per APA
+\renewcommand{\headrulewidth}{0pt}
 
 % Section formatting (APA: no numbering)
 \setcounter{secnumdepth}{0}
@@ -61,10 +61,10 @@
 % Accessibility and metadata
 \usepackage{hyperref}
 \hypersetup{
-  pdftitle={<Title>},
+  pdftitle={<Full Paper Title>},
   pdfauthor={Lanie Molinar},
-  pdfsubject={<Course or Assignment>},
-  pdfkeywords={APA, Accessibility, Template, <Keywords>},
+  pdfsubject={<Course Name or Assignment>},
+  pdfkeywords={APA 7, Accessibility, Template, <Keywords>},
   pdflang={en-US},
   colorlinks=true,
   linkcolor=blue,
@@ -83,8 +83,8 @@
 \pretitle{\begin{center}\large\bfseries}
 \posttitle{\end{center}}
 
-\title{<Title>}
-\author{Lanie Molinar\\<Institution>}
+\title{<Full Paper Title>}
+\author{Lanie Molinar\\<Institution Name>}
 \date{<Due Date>}
 
 \begin{document}
@@ -92,13 +92,17 @@
 % Title page
 \begin{titlepage}
 \maketitle
-\thispagestyle{fancy}
+\thispagestyle{empty}
 
 \begin{center}
 <Course Name>\\
+\vspace{1em}
 Instructor: <Professor Name>
 \end{center}
 \end{titlepage}
+
+% Reset page counter so page 2 starts as page 1
+\setcounter{page}{1}
 
 % Main content starts on page 2
 \section{<Section Title>}
@@ -107,8 +111,11 @@ Here is a citation to a sample source \parencite{smith2020}.
 
 You can also cite inline like \textcite{smith2020} or with multiple sources \parencite{smith2020,doe2021}.
 
-\newpage
+% Optional: Add more sections
+\section{<Another Section Title>}
 
+% Optional: Print bibliography if needed
+\newpage
 \printbibliography[heading=bibintoc]
 
 \end{document}

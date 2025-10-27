@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.0] - 2025-10-27
+
+### Changed
+  - Title page layout and metadata fields clarified
+  - Page counter reset so main content starts at page 1
+  - Section structure and placeholders updated for APA format
+  - Instructor and course fields separated and formatted per APA guidelines
+  - General template refinements for student papers
+
 ## [1.4.0] - 2025-10-27
 
 ### Changed
