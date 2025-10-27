@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Documentation
+- Refined `README.md` for clarity, accessibility, and citation guidance
+- Added version badge, release notes link, and quick-start build command
+- Cross-referenced PDF/UA tagging status throughout the README
+- Added Community and Support section to invite collaboration
+- Updated BibTeX citation block to reflect version 1.5.0
+- Linked to citation guidance near the top of the README
+
 ## [1.5.0] - 2025-10-27
 
 ### Changed

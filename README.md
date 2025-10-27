@@ -7,6 +7,10 @@
 - 💼 [LinkedIn](https://www.linkedin.com/in/laniecarmelo/)
 - 🧑‍💻 [GitHub Profile](https://github.com/lanie-carmelo)
 
+![Version](https://img.shields.io/badge/version-1.5.0-blue)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://pre-commit.com/)
+📦 [Release Notes](CHANGELOG.md)
+
 Built for blind and sighted students alike, this template emphasizes accessibility, automation, and academic integrity in APA 7 academic writing.
 
 This repository provides a ready-to-use template for APA 7th edition student
@@ -14,7 +18,7 @@ papers, written in LaTeX. It emphasizes accessibility, automation, and academic
 integrity. This template uses the biblatex package with the biber backend (not
 BibTeX). It includes:
 
-`main.tex`: Starter document using manual APA formatting and Biber for bibliography processing. PDF/UA tagging is currently disabled due to compatibility issues.
+`main.tex`: Starter document using manual APA formatting and Biber for bibliography processing. PDF/UA tagging is currently disabled ([why?](#pdfua-tagging-status)).
 - `apa.csl`: Citation Style Language file for APA 7th edition (used by Pandoc).
 - `Makefile`: Build system for PDF, HTML, DOCX, linting, viewing, and archiving.
 - `.gitignore`: Ignores LaTeX build artifacts and editor backups.
@@ -32,6 +36,8 @@ This template is designed for students, researchers, and accessibility advocates
 who want to produce APA-compliant documents using LaTeX—whether working locally
 or in Overleaf.
 
+📝 [How to Cite This Template](#citation-and-attribution)
+
 ## Accessibility Tools Used
 
 This template was built with screen readers like NVDA and JAWS using Microsoft Visual
@@ -47,15 +53,47 @@ En dashes are used here for APA compliance and professional typography, not for 
 
 ## Getting Started
 
+```sh
+make pdf
+```
+
 1. **Install LaTeX** (TeX Live, MikTeX, etc.) and Biber.
 2. **Clone this repo** and add your content to `main.tex`.
 3. **Add your references** to `references.bib` (see Using Zotero below).
 4. **Build your document** using the Makefile (see Build Process).
 
 ## Build Process
+
+### Pre-Commit Hooks
+
+This repository uses [pre-commit](https://pre-commit.com/) to enforce linting and formatting standards before commits. Hooks include:
+
+- File size checks
+- Merge conflict detection
+- Whitespace trimming
+- YAML validation
+- LaTeX linting with ChkTeX
+- Citation checks via `.log` parsing
+
+To install and activate the hooks:
+
+```sh
+pre-commit install
+```
+
+To update hook versions:
+
+```sh
+pre-commit autoupdate
+```
+
+See `.pre-commit-config.yaml` for configuration details.
+
 ### LaTeX Linting with ChkTeX
 
-ChkTeX linting is supported, but configuration must be set via command line options or comments in your `.tex` files. The `.chktexrc` file is no longer included, as its options are not supported by ChkTeX. Use `% chktex <number>` comments or `-n <number>` options to suppress warnings as needed.
+ChkTeX linting is supported via pre-commit hooks and Makefile targets. Suppression can be done using `% chktex <number> off` / `% chktex <number> on` comments in `.tex` files, or by passing `-n<number>` flags to ChkTeX via the Makefile or pre-commit configuration.
+
+**Note:** Warning 1 (“Command terminated with space”) is a known false positive triggered by `\doublespacing`. This warning is globally disabled in the pre-commit configuration using `-n1`. See `.pre-commit-config.yaml` for details.
 
 The provided `Makefile` automates compilation and conversion to multiple formats.
 **Note:** This template uses `biblatex` with the `biber` backend (not BibTeX).
@@ -64,7 +102,7 @@ The provided `Makefile` automates compilation and conversion to multiple formats
 
 | Target        | Description                                                                 |
 |---------------|-----------------------------------------------------------------------------|
-| `pdf`         | Compiles the LaTeX document into a PDF using LuaLaTeX. PDF/UA tagging is currently disabled.   |
+| `pdf`         | Compiles the LaTeX document into a PDF using LuaLaTeX. PDF/UA tagging is currently disabled ([why?](#pdfua-tagging-status)).   |
 | `pdf-pandoc`  | Generates a PDF using Pandoc (alternative method).                          |
 | `html`        | Converts the LaTeX document to HTML using Pandoc with APA citation styling. |
 | `docx`        | Converts the LaTeX document to DOCX using Pandoc.                           |
@@ -132,7 +170,8 @@ You can use Zotero to manage your references and export them to BibLaTeX format:
 
 ## Customization
 
-- Update the document title, author, and other fields in `main.tex` (`\title`, `\author`, etc.). PDF/UA metadata is not currently included.
+- Update the document title, author, and other fields in `main.tex` (`\title`,
+  `\author`, etc.). PDF/UA metadata is not currently included ([why?](#pdfua-tagging-status)).
 - Use the `biblatex` options and APA formatting as needed.
 - Modify the Makefile to suit your workflow or add new targets.
 
@@ -145,8 +184,16 @@ If you encounter issues:
 3. **Linting Errors**: Run `make lint` to catch syntax issues and missing references.
 4. **Log Files**: Review `.log` files for warnings or errors.
 5. **Overleaf**: Ensure the bibliography tool is set to Biber in project settings.
-6. **Ask for Help**: Reach out via LaTeX forums, Stack Exchange, or GitHub
-   Issues.
+6. **Ask for Help**: Reach out via LaTeX forums, Stack Exchange, or GitHub Issues.
+
+## Known Issues
+
+- **ChkTeX Warning 1**: `\doublespacing` may trigger a false positive ("Command terminated with space"). This warning is suppressed globally via `-n1` in `.pre-commit-config.yaml`.
+- **PDF/UA Tagging**: Disabled due to compatibility issues with LuaLaTeX and screen readers. Enabling it causes consistent build errors. Semantic markup is preserved, but full compliance is not guaranteed.
+
+## Community and Support
+
+For questions, feedback, or accessibility-related suggestions, feel free to open a GitHub Issue or reach out via [Mastodon](https://allovertheplace.ca/@RareBird15).
 
 ## Contributing
 
@@ -158,22 +205,33 @@ MIT License.
 
 ## Features
 
-* PDF/UA-1 tagging: **Disabled** due to compatibility issues with some LaTeX distributions and screen readers. The template still prioritizes semantic markup and accessibility best practices, but does not include PDF/UA tagging or DocumentMetadata.
-* **Accessible PDFs**: Semantic markup and screen reader-friendly formatting are maintained, but PDF/UA compliance is not guaranteed.
+### PDF/UA Tagging Status
+
+PDF/UA-1 tagging is **disabled** in this template due to compatibility issues with LuaLaTeX and screen readers. While semantic markup and screen reader-friendly formatting are preserved, full PDF/UA compliance is not guaranteed.
+
+For details, see [Known Issues](#known-issues).
 
 ## File Structure
 
 ```
-├── main.tex              # Main LaTeX document
-├── references.bib        # Bibliography database
-├── apa.csl              # APA 7 citation style for Pandoc
-├── Makefile             # Build automation
-├── add-refs-heading.lua # Pandoc filter for references heading
-├── .gitignore           # Git ignore patterns
-├── README.md            # This file
-├── CONTRIBUTING.md      # Contribution guidelines
-├── CHANGELOG.md         # Version history and release notes
-└── LICENSE              # MIT License
+├── main.tex                  # Main LaTeX document (edit this)
+├── references.bib            # Bibliography database
+├── apa.csl                   # APA 7 citation style for Pandoc
+├── Makefile                  # Build automation (PDF, HTML, DOCX, lint, etc.)
+├── add-refs-heading.lua      # Pandoc filter for accessible references heading
+├── .gitignore                # Ignore LaTeX build artifacts and editor backups
+├── .pre-commit-config.yaml   # Pre-commit hook configuration
+├── README.md                 # This file (documentation)
+├── CONTRIBUTING.md           # Contribution guidelines
+├── CHANGELOG.md              # Version history and release notes
+├── LICENSE                   # MIT License
+├── VERSION                   # Current template version
+├── CITATION.cff              # Citation metadata for GitHub
+├── output/                   # Build artifacts (PDF, HTML, DOCX; auto-created)
+├── submissions/              # Timestamped submission copies (auto-created)
+├── .github/
+│   └── workflows/            # CI/CD pipeline definitions
+└── .vscode/                  # VS Code settings (optional, not committed)
 ```
 
 ## Citation and Attribution
@@ -181,7 +239,7 @@ MIT License.
 If you use this template for your academic work, consider acknowledging it:
 
 **Option 1: In your paper's acknowledgments (informal):**
-> This paper was formatted using the APA 7 Student Paper LaTeX Template (v1.2.0) by Lanie Molinar Carmelo, available at https://github.com/Lanie-Carmelo/APA-7-Student-Paper-Template
+> This paper was formatted using the APA 7 Student Paper LaTeX Template (v1.5.0) by Lanie Molinar Carmelo, available at https://github.com/Lanie-Carmelo/APA-7-Student-Paper-Template
 
 **Option 2: In technical documentation or derivative works:**
 ```bibtex
@@ -192,7 +250,7 @@ If you use this template for your academic work, consider acknowledging it:
   publisher = {GitHub},
   journal = {GitHub repository},
   howpublished = {\url{https://github.com/Lanie-Carmelo/APA-7-Student-Paper-Template}},
-  note = {Version 1.2.0}
+  note = {Version 1.5.0}
 }
 ```
 

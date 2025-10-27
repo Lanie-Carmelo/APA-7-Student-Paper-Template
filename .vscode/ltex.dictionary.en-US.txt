@@ -16,3 +16,9 @@ biblatex
 CODEOWNERS
 gitignore
 msttcorefonts
+DocumentMetadata
+CSpell
+cspell
+json
+cff
+ChkTeX
