@@ -14,7 +14,7 @@ papers, written in LaTeX. It emphasizes accessibility, automation, and academic
 integrity. This template uses the biblatex package with the biber backend (not
 BibTeX). It includes:
 
-- `main.tex`: Starter document using manual APA formatting, PDF/UA metadata, and Biber for bibliography processing.
+`main.tex`: Starter document using manual APA formatting and Biber for bibliography processing. PDF/UA tagging is currently disabled due to compatibility issues.
 - `apa.csl`: Citation Style Language file for APA 7th edition (used by Pandoc).
 - `Makefile`: Build system for PDF, HTML, DOCX, linting, viewing, and archiving.
 - `.gitignore`: Ignores LaTeX build artifacts and editor backups.
@@ -61,7 +61,7 @@ The provided `Makefile` automates compilation and conversion to multiple formats
 
 | Target        | Description                                                                 |
 |---------------|-----------------------------------------------------------------------------|
-| `pdf`         | Compiles the LaTeX document into a tagged, accessible PDF using LuaLaTeX.   |
+| `pdf`         | Compiles the LaTeX document into a PDF using LuaLaTeX. PDF/UA tagging is currently disabled.   |
 | `pdf-pandoc`  | Generates a PDF using Pandoc (alternative method).                          |
 | `html`        | Converts the LaTeX document to HTML using Pandoc with APA citation styling. |
 | `docx`        | Converts the LaTeX document to DOCX using Pandoc.                           |
@@ -129,7 +129,7 @@ You can use Zotero to manage your references and export them to BibLaTeX format:
 
 ## Customization
 
-- Update the document metadata in `main.tex` (`\title`, `\author`, etc.).
+- Update the document title, author, and other fields in `main.tex` (`\title`, `\author`, etc.). PDF/UA metadata is not currently included.
 - Use the `biblatex` options and APA formatting as needed.
 - Modify the Makefile to suit your workflow or add new targets.
 
@@ -155,14 +155,8 @@ MIT License.
 
 ## Features
 
-- ✅ PDF/UA-1 tagging: Ensures screen reader compatibility and semantic structure for accessible academic publishing.
-- ✅ **APA 7th Edition Formatting**: Manual formatting following official guidelines
-- ✅ **Accessible PDFs**: PDF/UA-1 compliant with proper tagging
-- ✅ **Multiple Output Formats**: PDF, HTML, and DOCX via Pandoc
-- ✅ **Automated Builds**: Makefile with linting, viewing, and archiving
-- ✅ **Biber Backend**: Modern bibliography processing (not BibTeX)
-- ✅ **Overleaf Compatible**: Works seamlessly with Overleaf
-- ✅ **LuaLaTeX**: Full Unicode and modern font support
+* PDF/UA-1 tagging: **Disabled** due to compatibility issues with some LaTeX distributions and screen readers. The template still prioritizes semantic markup and accessibility best practices, but does not include PDF/UA tagging or DocumentMetadata.
+* **Accessible PDFs**: Semantic markup and screen reader-friendly formatting are maintained, but PDF/UA compliance is not guaranteed.
 
 ## File Structure
 

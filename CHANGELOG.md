@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.0] - 2025-10-27
+
+### Changed
+- Removed PDF/UA tagging and \DocumentMetadata from main.tex due to persistent compatibility issues with LaTeX distributions and screen readers. PDF/UA compliance is no longer guaranteed; semantic markup and accessibility best practices are still maintained.
+- Updated README and documentation to clarify that PDF/UA tagging is disabled and instructions no longer reference DocumentMetadata or PDF/UA features.
+
 ## [1.3.0] - 2025-10-20
 
 ### Added
