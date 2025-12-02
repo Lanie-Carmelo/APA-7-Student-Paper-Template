@@ -38,10 +38,11 @@ git show v1.6.0 --no-patch --format="v1.6.0: %s (commit: %h, date: %ai)"
 echo ""
 
 # Confirm before pushing
-read -p "Push these tags to origin? (y/N) " -n 1 -r
+echo "⚠️  This will push tags to GitHub and trigger automatic release creation."
+read -p "Do you want to proceed? (y/n): " -n 1 -r
 echo ""
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-    echo "❌ Aborted by user"
+    echo "❌ Operation cancelled"
     exit 1
 fi
 

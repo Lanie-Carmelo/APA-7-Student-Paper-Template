@@ -14,8 +14,8 @@ The CHANGELOG.md documents releases v1.5.0 and v1.6.0, but these tags don't exis
    - Commit Message: "chore: release v1.5.0 - Update template version and refine layout for APA compliance"
    
 2. **v1.6.0** - Points to commit `d951c5d3ab2df73143e33f51da4aebe99b93fe74`
-   - Release Date: December 2, 2025 (per CHANGELOG; commit was December 1, 2025)
-   - Note: Minor date discrepancy between commit date and CHANGELOG is acceptable for release documentation
+   - Release Date: December 2, 2025 (per CHANGELOG)
+   - Commit Date: December 1, 2025 6:57 PM CST (December 2, 2025 00:57 UTC)
    - Commit Message: "feat: enhance build system, validation, and documentation (v1.6.0) (#18)"
 
 ## Commands to Execute
