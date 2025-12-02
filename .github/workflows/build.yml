@@ -7,9 +7,16 @@ on:
       - '**.md'
       - 'LICENSE'
       - '.gitignore'
+      - '.github/dependabot.yml'
+      - '.pre-commit-config.yaml'
   pull_request:
     branches: [ main ]
   workflow_dispatch:
+
+# Cancel in-progress runs when a new workflow with the same group name is triggered
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   pdf:
@@ -48,10 +55,16 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            *.aux
-            *.bbl
-            *.bcf
-          key: latex-${{ hashFiles('main.tex', 'references.bib') }}
+            output/*.aux
+            output/*.bbl
+            output/*.bcf
+            output/*.run.xml
+          key: latex-${{ runner.os }}-${{ hashFiles('main.tex', 'references.bib') }}
+          restore-keys: |
+            latex-${{ runner.os }}-
+
+      - name: Verify dependencies
+        run: make check-deps
 
       - name: Run lint check
         run: make lint
@@ -59,6 +72,14 @@ jobs:
 
       - name: Build PDF
         run: make pdf
+        
+      - name: Verify PDF was created
+        run: |
+          if [ ! -f output/main.pdf ]; then
+            echo "❌ PDF was not created"
+            exit 1
+          fi
+          ls -lh output/main.pdf
 
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v5

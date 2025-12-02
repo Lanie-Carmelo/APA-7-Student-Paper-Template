@@ -13,7 +13,7 @@ All badges and links in this README are designed to be screen-reader-friendly. I
 
 ## Project Status
 
-[![Version: 1.5.0](https://img.shields.io/badge/version-1.5.0-blue)](https://github.com/Lanie-Carmelo/APA-7-Student-Paper-Template/releases/tag/v1.5.0) 
+[![Version: 1.6.0](https://img.shields.io/badge/version-1.6.0-blue)](https://github.com/Lanie-Carmelo/APA-7-Student-Paper-Template/releases/tag/v1.6.0) 
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://pre-commit.com/) 
 [Release Notes](CHANGELOG.md)
 
@@ -59,14 +59,21 @@ En dashes are used here for APA compliance and professional typography, not for 
 
 ## Getting Started
 
+### Quick Start
+
 ```sh
-make pdf
+make check-deps    # Verify dependencies
+make pdf           # Build your document
+make validate      # Check output quality
 ```
+
+### Full Setup
 
 1. **Install LaTeX** (TeX Live, MikTeX, etc.) and Biber.
 2. **Clone this repo** and add your content to `main.tex`.
 3. **Add your references** to `references.bib` (see Using Zotero below).
-4. **Build your document** using the Makefile (see Build Process).
+4. **Verify dependencies**: Run `make check-deps` to ensure all tools are installed.
+5. **Build your document** using the Makefile (see Build Process).
 
 ## Build Process
 
@@ -106,22 +113,26 @@ The provided `Makefile` automates compilation and conversion to multiple formats
 
 ### Common Targets
 
-| Target        | Description                                                                 |
-|---------------|-----------------------------------------------------------------------------|
-| `pdf`         | Compiles the LaTeX document into a PDF using LuaLaTeX. PDF/UA tagging is currently disabled ([why?](#pdfua-tagging-status)).   |
-| `pdf-pandoc`  | Generates a PDF using Pandoc (alternative method).                          |
-| `html`        | Converts the LaTeX document to HTML using Pandoc with APA citation styling. |
-| `docx`        | Converts the LaTeX document to DOCX using Pandoc.                           |
-| `lint`        | Runs `chktex` and checks `.log` for missing citations or references.        |
-| `check`       | Displays metadata and integrity info for the compiled PDF.                  |
-| `view`        | Opens the final PDF in your default Windows viewer (e.g., Acrobat).         |
-| `refresh`     | Reopens the PDF to simulate a manual refresh.                               |
-| `build`       | Runs `lint`, compiles the PDF, and opens it—ideal for final review.         |
-| `watch`       | Watches for changes to `.tex` or `.bib` and rebuilds automatically.         |
-| `submissions` | Copies the final PDF to a `submissions/` folder with a timestamp.           |
-| `status`      | Lists output file sizes and last modified times.                            |
-| `clean`       | Removes LaTeX build artifacts and the output directory.                     |
-| `distclean`   | Removes all generated files, including outputs and submissions.             |
+| Target           | Description                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| `check-deps`     | Verifies that required dependencies (LuaLaTeX, Biber) are installed.       |
+| `check-deps-all` | Checks all dependencies including optional ones (Pandoc, ChkTeX).           |
+| `pdf`            | Compiles the LaTeX document into a PDF using LuaLaTeX. PDF/UA tagging is currently disabled ([why?](#pdfua-tagging-status)).   |
+| `pdf-pandoc`     | Generates a PDF using Pandoc (alternative method).                          |
+| `html`           | Converts the LaTeX document to HTML using Pandoc with APA citation styling. |
+| `docx`           | Converts the LaTeX document to DOCX using Pandoc.                           |
+| `lint`           | Runs `chktex` and checks `.log` for missing citations or references.        |
+| `validate`       | Validates output files for quality, accessibility, and common issues.       |
+| `check`          | Displays metadata and integrity info for the compiled PDF.                  |
+| `view`           | Opens the final PDF in your default Windows viewer (e.g., Acrobat).         |
+| `refresh`        | Reopens the PDF to simulate a manual refresh.                               |
+| `build`          | Runs `lint`, compiles the PDF, and opens it—ideal for final review.         |
+| `watch`          | Watches for changes to `.tex` or `.bib` and rebuilds automatically.         |
+| `submissions`    | Copies the final PDF to a `submissions/` folder with a timestamp.           |
+| `status`         | Lists output file sizes and last modified times.                            |
+| `clean`          | Removes LaTeX build artifacts and the output directory.                     |
+| `distclean`      | Removes all generated files, including outputs and submissions.             |
+| `help`           | Displays detailed help for all available Makefile targets.                  |
 
 To use a target, run:
 
@@ -183,14 +194,94 @@ You can use Zotero to manage your references and export them to BibLaTeX format:
 
 ## Troubleshooting
 
-If you encounter issues:
+### Quick Diagnostics
 
-1. **Check LaTeX Installation**: Ensure you have a working LaTeX installation and all required packages.
-2. **Biber Issues**: If citations or bibliography fail, verify that Biber is installed and properly configured.
-3. **Linting Errors**: Run `make lint` to catch syntax issues and missing references.
-4. **Log Files**: Review `.log` files for warnings or errors.
-5. **Overleaf**: Ensure the bibliography tool is set to Biber in project settings.
-6. **Ask for Help**: Reach out via LaTeX forums, Stack Exchange, or GitHub Issues.
+Before building, verify your system has the required tools:
+
+```sh
+make check-deps        # Check core dependencies (LuaLaTeX, Biber)
+make check-deps-all    # Check all dependencies including optional ones
+```
+
+### Common Issues
+
+#### 1. "lualatex: command not found" or "biber: command not found"
+
+**Solution**: Install the required LaTeX distribution:
+- **Ubuntu/Debian**: `sudo apt-get install texlive-luatex biber`
+- **macOS**: `brew install --cask mactex` (includes Biber)
+- **Windows**: Install [MikTeX](https://miktex.org/) or [TeX Live](https://www.tug.org/texlive/)
+
+Run `make check-deps` to verify installation.
+
+#### 2. Citations not appearing or "undefined citation" errors
+
+**Solution**: 
+- Ensure you're running the full build sequence (3 LaTeX passes with Biber in between)
+- Use `make pdf` which handles this automatically
+- Check that `references.bib` is in the correct format
+- Verify Biber completed successfully (check output for errors)
+
+Manual verification:
+```sh
+make clean   # Remove old build files
+make pdf     # Full rebuild
+```
+
+#### 3. Times New Roman font not found
+
+**Solution**:
+- **Windows**: Font should be pre-installed
+- **macOS**: Install Microsoft Office or download the font
+- **Linux**: `sudo apt-get install ttf-mscorefonts-installer`
+
+Alternatively, change the font in `main.tex`:
+```latex
+\setmainfont{Liberation Serif}  % Free alternative to Times New Roman
+```
+
+#### 4. Build fails in GitHub Actions CI
+
+**Solution**: The workflow includes workarounds for common issues. If it still fails:
+- Check the Actions log for specific errors
+- Ensure `main.tex` compiles locally first
+- Verify no syntax errors with `make lint`
+
+#### 5. Linting warnings from ChkTeX
+
+Some warnings are expected:
+- **Warning 1** (`\doublespacing`): Suppressed globally (false positive)
+- **Warning 22** (inline math): Suppressed for APA style
+- **Warning 30** (multiple spaces): Suppressed for spacing control
+
+Add custom suppressions in `.pre-commit-config.yaml` or `Makefile` using `-n<number>` flags.
+
+#### 6. Pre-commit hooks failing
+
+**Solution**:
+```sh
+# Update hooks to latest versions
+pre-commit autoupdate
+
+# Run manually to see detailed output
+pre-commit run --all-files
+
+# Bypass hooks if needed (not recommended)
+git commit --no-verify -m "message"
+```
+
+### Getting Help
+
+If the above doesn't resolve your issue:
+
+1. **Check Log Files**: Review `output/main.log` for detailed error messages
+2. **Validate Output**: Run `make validate` to check for common problems
+3. **GitHub Issues**: [Open an issue](https://github.com/Lanie-Carmelo/APA-7-Student-Paper-Template/issues) with:
+   - Your LaTeX distribution and version (`lualatex --version`)
+   - Operating system
+   - Full error message from log file
+   - Output of `make check-deps`
+4. **Community Help**: Ask on [TeX Stack Exchange](https://tex.stackexchange.com/) with the `apa` and `biblatex` tags
 
 ## Known Issues
 
@@ -220,24 +311,29 @@ For details, see [Known Issues](#known-issues).
 ## File Structure
 
 ```
-├── main.tex                  # Main LaTeX document (edit this)
-├── references.bib            # Bibliography database
-├── apa.csl                   # APA 7 citation style for Pandoc
-├── Makefile                  # Build automation (PDF, HTML, DOCX, lint, etc.)
-├── add-refs-heading.lua      # Pandoc filter for accessible references heading
-├── .gitignore                # Ignore LaTeX build artifacts and editor backups
-├── .pre-commit-config.yaml   # Pre-commit hook configuration
-├── README.md                 # This file (documentation)
-├── CONTRIBUTING.md           # Contribution guidelines
-├── CHANGELOG.md              # Version history and release notes
-├── LICENSE                   # MIT License
-├── VERSION                   # Current template version
-├── CITATION.cff              # Citation metadata for GitHub
-├── output/                   # Build artifacts (PDF, HTML, DOCX; auto-created)
-├── submissions/              # Timestamped submission copies (auto-created)
+├── main.tex                    # Main LaTeX document (edit this)
+├── references.bib              # Bibliography database
+├── apa.csl                     # APA 7 citation style for Pandoc
+├── Makefile                    # Build automation (PDF, HTML, DOCX, lint, etc.)
+├── add-refs-heading.lua        # Pandoc filter for accessible references heading
+├── .gitignore                  # Ignore LaTeX build artifacts and editor backups
+├── .pre-commit-config.yaml     # Pre-commit hook configuration
+├── .editorconfig               # Editor configuration for consistent formatting
+├── .cspell.json                # Spell checking configuration
+├── README.md                   # This file (documentation)
+├── CONTRIBUTING.md             # Contribution guidelines
+├── CHANGELOG.md                # Version history and release notes
+├── LICENSE                     # MIT License
+├── VERSION                     # Current template version
+├── CITATION.cff                # Citation metadata for GitHub
+├── scripts/
+│   └── validate-output.sh      # Output validation script
+├── output/                     # Build artifacts (PDF, HTML, DOCX; auto-created)
+├── submissions/                # Timestamped submission copies (auto-created)
 ├── .github/
-│   └── workflows/            # CI/CD pipeline definitions
-└── .vscode/                  # VS Code settings (optional, not committed)
+│   ├── workflows/              # CI/CD pipeline definitions
+│   └── dependabot.yml          # Automated dependency updates
+└── .vscode/                    # VS Code settings (optional, not committed)
 ```
 
 ## Citation and Attribution
@@ -245,7 +341,7 @@ For details, see [Known Issues](#known-issues).
 If you use this template for your academic work, consider acknowledging it:
 
 **Option 1: In your paper's acknowledgments (informal):**
-> This paper was formatted using the APA 7 Student Paper LaTeX Template (v1.5.0) by Lanie Molinar Carmelo, available at https://github.com/Lanie-Carmelo/APA-7-Student-Paper-Template
+> This paper was formatted using the APA 7 Student Paper LaTeX Template (v1.6.0) by Lanie Molinar Carmelo, available at https://github.com/Lanie-Carmelo/APA-7-Student-Paper-Template
 
 **Option 2: In technical documentation or derivative works:**
 ```bibtex
@@ -256,7 +352,7 @@ If you use this template for your academic work, consider acknowledging it:
   publisher = {GitHub},
   journal = {GitHub repository},
   howpublished = {\url{https://github.com/Lanie-Carmelo/APA-7-Student-Paper-Template}},
-  note = {Version 1.5.0}
+  note = {Version 1.6.0}
 }
 ```
 

@@ -7,13 +7,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.0] - 2025-12-02
+
+### Added
+- Dependency checking targets (`check-deps`, `check-deps-all`) to verify required tools before building
+- Output validation script (`scripts/validate-output.sh`) to check PDF quality and accessibility
+- `validate` Makefile target to run quality checks on generated outputs
+- Enhanced Makefile with better error handling, progress indicators, and user-friendly messages
+- Improved help documentation in Makefile with organized target categories
+- Enhanced Dependabot configuration with commit message conventions and auto-assignment
+- Concurrency control in CI workflow to cancel redundant builds
+- Verification step in CI to ensure PDF is created successfully
+- Pre-commit hooks for checking executable shebangs and mixed line endings
+- `.gitkeep` files to preserve output and submissions directories
+
+### Changed
+- Makefile now validates dependencies before attempting builds
+- PDF, HTML, and DOCX build targets now show clear progress and completion messages
+- Improved CI caching strategy with better restore keys
+- Enhanced `.gitignore` with better coverage for temporary files and build artifacts
+- Pre-commit hooks now exclude output and submissions directories
+- Optimized error handling throughout Makefile targets
+
 ### Documentation
-- Refined `README.md` for clarity, accessibility, and citation guidance
-- Added version badge, release notes link, and quick-start build command
-- Cross-referenced PDF/UA tagging status throughout the README
-- Added Community and Support section to invite collaboration
-- Updated BibTeX citation block to reflect version 1.5.0
-- Linked to citation guidance near the top of the README
+- Completely rewritten Troubleshooting section with common issues and solutions
+- Added Quick Start guide with dependency verification steps
+- Updated Build Process table with all new Makefile targets
+- Added comprehensive diagnostics section for debugging build issues
+- Updated File Structure to include scripts directory and new files
+- Enhanced installation instructions for different platforms
+- Added dependency verification commands to Getting Started
+
+### Fixed
+- Makefile now handles missing optional tools gracefully (ChkTeX, Pandoc, pdfinfo)
+- Improved cleanup target to remove copied bibliography files
+- Better error messages when tools are not installed
 
 ## [1.5.0] - 2025-10-27
 
@@ -91,7 +119,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - MIT License
 - CONTRIBUTING.md with contribution guidelines
 
-[Unreleased]: https://github.com/lanie-carmelo/apa-7-student-paper-template/compare/v1.3.0...HEAD
+[Unreleased]: https://github.com/lanie-carmelo/apa-7-student-paper-template/compare/v1.6.0...HEAD
+[1.6.0]: https://github.com/lanie-carmelo/apa-7-student-paper-template/compare/v1.5.0...v1.6.0
+[1.5.0]: https://github.com/lanie-carmelo/apa-7-student-paper-template/compare/v1.4.0...v1.5.0
+[1.4.0]: https://github.com/lanie-carmelo/apa-7-student-paper-template/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/lanie-carmelo/apa-7-student-paper-template/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/lanie-carmelo/apa-7-student-paper-template/compare/v1.1.1...v1.2.0
 [1.1.1]: https://github.com/lanie-carmelo/apa-7-student-paper-template/compare/v1.1.0...v1.1.1
