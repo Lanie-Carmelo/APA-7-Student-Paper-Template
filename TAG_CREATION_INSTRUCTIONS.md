@@ -14,12 +14,27 @@ The CHANGELOG.md documents releases v1.5.0 and v1.6.0, but these tags don't exis
    - Commit Message: "chore: release v1.5.0 - Update template version and refine layout for APA compliance"
    
 2. **v1.6.0** - Points to commit `d951c5d3ab2df73143e33f51da4aebe99b93fe74`
-   - Release Date: December 1, 2025 (commit date), December 2, 2025 (CHANGELOG date)
+   - Release Date: December 2, 2025 (per CHANGELOG; commit was December 1, 2025)
+   - Note: Minor date discrepancy between commit date and CHANGELOG is acceptable for release documentation
    - Commit Message: "feat: enhance build system, validation, and documentation (v1.6.0) (#18)"
 
 ## Commands to Execute
 
-### Option 1: Create and Push Tags Individually
+### Recommended: Use the Provided Script
+
+```bash
+# The script has execute permissions already set
+./push-tags.sh
+```
+
+The script will:
+- Verify tags exist locally
+- Show tag details for confirmation
+- Prompt before pushing
+- Push both tags safely
+- Display next steps
+
+### Option 1: Create and Push Tags Manually (Individual Commands)
 
 ```bash
 # Navigate to repository
@@ -136,8 +151,9 @@ git push origin --delete v1.6.0
 ### If Release Notes Are Empty
 The workflow extracts content between `## [X.Y.Z]` headers in CHANGELOG.md. Verify:
 1. CHANGELOG.md has properly formatted version headers
-2. Version numbers match (e.g., `## [1.5.0]` for tag `v1.5.0`)
-3. Content exists between the version header and the next version header
+2. Version numbers match: CHANGELOG uses `## [1.5.0]` (without 'v'), while tag is `v1.5.0` (with 'v')
+3. The workflow strips the 'v' prefix from the tag when searching CHANGELOG.md
+4. Content exists between the version header and the next version header
 
 ## Additional Notes
 
