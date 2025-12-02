@@ -18,8 +18,8 @@ fi
 
 echo "✓ PDF exists: $MAIN_PDF"
 
-# Check PDF size (should be at least 10KB)
-PDF_SIZE=$(stat -f%z "$MAIN_PDF" 2>/dev/null || stat -c%s "$MAIN_PDF" 2>/dev/null)
+# Check PDF size (should be at least 10KB) - using portable method
+PDF_SIZE=$(wc -c < "$MAIN_PDF")
 if [ "$PDF_SIZE" -lt 10240 ]; then
     echo "⚠ Warning: PDF seems too small (${PDF_SIZE} bytes)"
 else
@@ -74,7 +74,7 @@ fi
 # Check optional DOCX output
 if [ -f "$MAIN_DOCX" ]; then
     echo "✓ DOCX exists: $MAIN_DOCX"
-    DOCX_SIZE=$(stat -f%z "$MAIN_DOCX" 2>/dev/null || stat -c%s "$MAIN_DOCX" 2>/dev/null)
+    DOCX_SIZE=$(wc -c < "$MAIN_DOCX")
     echo "  Size: ${DOCX_SIZE} bytes"
 else
     echo "ℹ DOCX not generated (optional)"

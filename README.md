@@ -210,7 +210,7 @@ make check-deps-all    # Check all dependencies including optional ones
 #### 1. "lualatex: command not found" or "biber: command not found"
 
 **Solution**: Install the required LaTeX distribution:
-- **Ubuntu/Debian**: `sudo apt-get install texlive-luatex biber`
+- **Ubuntu/Debian**: `sudo apt install texlive-luatex biber`
 - **macOS**: `brew install --cask mactex` (includes Biber)
 - **Windows**: Install [MikTeX](https://miktex.org/) or [TeX Live](https://www.tug.org/texlive/)
 
@@ -235,7 +235,7 @@ make pdf     # Full rebuild
 **Solution**:
 - **Windows**: Font should be pre-installed
 - **macOS**: Install Microsoft Office or download the font
-- **Linux**: `sudo apt-get install ttf-mscorefonts-installer`
+- **Linux**: `sudo apt install ttf-mscorefonts-installer`
 
 Alternatively, change the font in `main.tex`:
 ```latex

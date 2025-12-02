@@ -40,10 +40,10 @@ all: check-deps pdf html docx
 # PDF target
 pdf: check-deps | $(OUTPUT_DIR)
 	@echo "📄 Building PDF with LuaLaTeX..."
-	@lualatex -interaction=nonstopmode -output-directory=$(OUTPUT_DIR) $(TEXFILE) || (echo "❌ LaTeX compilation failed"; exit 1)
+	@lualatex -interaction=nonstopmode -output-directory=$(OUTPUT_DIR) $(TEXFILE) || { echo "❌ LaTeX compilation failed"; exit 1; }
 	@cp $(BIBFILE) $(OUTPUT_DIR)/ 2>/dev/null || true
 	@echo "📚 Processing bibliography with Biber..."
-	@cd $(OUTPUT_DIR) && biber $(MAIN) || (echo "❌ Biber processing failed"; exit 1)
+	@cd $(OUTPUT_DIR) && biber $(MAIN) || { echo "❌ Biber processing failed"; exit 1; }
 	@echo "📄 Second LaTeX pass..."
 	@lualatex -interaction=nonstopmode -output-directory=$(OUTPUT_DIR) $(TEXFILE) > /dev/null
 	@echo "📄 Final LaTeX pass..."

@@ -8,7 +8,7 @@ This is a condensed guide for getting started quickly with the APA 7 Student Pap
 
 **Ubuntu/Debian:**
 ```bash
-sudo apt-get install texlive-luatex biber
+sudo apt install texlive-luatex biber
 ```
 
 **macOS:**
@@ -24,7 +24,7 @@ brew install --cask mactex
 For HTML/DOCX output:
 ```bash
 # Ubuntu/Debian
-sudo apt-get install pandoc
+sudo apt install pandoc
 
 # macOS
 brew install pandoc
@@ -33,7 +33,7 @@ brew install pandoc
 For linting:
 ```bash
 # Ubuntu/Debian
-sudo apt-get install chktex
+sudo apt install chktex
 
 # macOS
 brew install chktex
