@@ -9,14 +9,18 @@ The CHANGELOG.md documents releases v1.5.0 and v1.6.0, but these tags don't exis
 
 ### Tags to Create:
 
-1. **v1.5.0** - Points to commit `7bdcec373dc5ce0509a17149973d242fd62280b8`
+1. **v1.5.0** - Points to commit `7bdcec3`
+   - Full SHA: `7bdcec373dc5ce0509a17149973d242fd62280b8`
    - Release Date: October 27, 2025
    - Commit Message: "chore: release v1.5.0 - Update template version and refine layout for APA compliance"
    
-2. **v1.6.0** - Points to commit `d951c5d3ab2df73143e33f51da4aebe99b93fe74`
+2. **v1.6.0** - Points to commit `d951c5d`
+   - Full SHA: `d951c5d3ab2df73143e33f51da4aebe99b93fe74`
    - Release Date: December 2, 2025 (per CHANGELOG)
    - Commit Date: December 1, 2025 6:57 PM CST (December 2, 2025 00:57 UTC)
    - Commit Message: "feat: enhance build system, validation, and documentation (v1.6.0) (#18)"
+
+**Note:** Commands below use short SHAs (7 characters) which is standard Git practice. You can also use full SHAs if preferred.
 
 ## Commands to Execute
 

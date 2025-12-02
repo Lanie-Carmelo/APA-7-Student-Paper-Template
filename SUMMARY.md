@@ -174,5 +174,5 @@ For questions or issues:
 
 ---
 
-**Document Created:** December 2, 2025  
+**Document Created:** 2025-12-02  
 **Purpose:** Analysis and instructions for creating missing release tags

@@ -33,8 +33,8 @@ echo ""
 # Show tag details
 echo "📌 Tag details:"
 echo ""
-git show v1.5.0 --no-patch --format="v1.5.0: %s (commit: %h, date: %ai)"
-git show v1.6.0 --no-patch --format="v1.6.0: %s (commit: %h, date: %ai)"
+git show v1.5.0 --no-patch --format="v1.5.0: %s (commit: %h, date: %ai)" 2>/dev/null || echo "  v1.5.0: (tag details unavailable)"
+git show v1.6.0 --no-patch --format="v1.6.0: %s (commit: %h, date: %ai)" 2>/dev/null || echo "  v1.6.0: (tag details unavailable)"
 echo ""
 
 # Confirm before pushing
