@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.6.0] - 2025-12-02
 
 ### Added
+- Quick Start Guide (`QUICKSTART.md`) for new users with condensed setup instructions
 - Dependency checking targets (`check-deps`, `check-deps-all`) to verify required tools before building
 - Output validation script (`scripts/validate-output.sh`) to check PDF quality and accessibility
 - `validate` Makefile target to run quality checks on generated outputs
@@ -30,7 +31,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Optimized error handling throughout Makefile targets
 
 ### Documentation
+- Added QUICKSTART.md with condensed guide for new users
 - Completely rewritten Troubleshooting section with common issues and solutions
+- Enhanced CONTRIBUTING.md with development workflow and testing guidelines
 - Added Quick Start guide with dependency verification steps
 - Updated Build Process table with all new Makefile targets
 - Added comprehensive diagnostics section for debugging build issues

@@ -59,6 +59,8 @@ En dashes are used here for APA compliance and professional typography, not for 
 
 ## Getting Started
 
+📚 **New to LaTeX?** Start with the [Quick Start Guide](QUICKSTART.md) for a condensed setup and usage guide.
+
 ### Quick Start
 
 ```sh
@@ -321,6 +323,7 @@ For details, see [Known Issues](#known-issues).
 ├── .editorconfig               # Editor configuration for consistent formatting
 ├── .cspell.json                # Spell checking configuration
 ├── README.md                   # This file (documentation)
+├── QUICKSTART.md               # Quick start guide for new users
 ├── CONTRIBUTING.md             # Contribution guidelines
 ├── CHANGELOG.md                # Version history and release notes
 ├── LICENSE                     # MIT License

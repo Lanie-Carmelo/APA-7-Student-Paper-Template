@@ -7,6 +7,11 @@ body:
     attributes:
       value: |
         Thanks for taking the time to report a bug!
+        
+        Before submitting, please:
+        1. Check the [Troubleshooting section](https://github.com/Lanie-Carmelo/APA-7-Student-Paper-Template#troubleshooting) in README
+        2. Run `make check-deps` to verify your dependencies
+        3. Try `make clean && make pdf` to rebuild from scratch
 
   - type: textarea
     id: description
@@ -40,11 +45,13 @@ body:
     id: environment
     attributes:
       label: Environment
-      description: Please provide your system information
+      description: Please provide your system information (run `make check-deps` for version info)
       placeholder: |
         - OS: Ubuntu 22.04 / Windows 11 / macOS 14
         - LaTeX Distribution: TeX Live 2024
-        - LuaLaTeX Version: 1.17.0
+        - LuaLaTeX Version: (run `lualatex --version`)
+        - Biber Version: (run `biber --version`)
+        - Output of `make check-deps`:
     validations:
       required: true
 
