@@ -1,7 +1,27 @@
 {
   "version": "0.2",
   "language": "en",
-  "words": ["LuaLaTeX", "biblatex", "biber"],
+  "words": [
+    "LuaLaTeX",
+    "biblatex",
+    "biber",
+    "ChkTeX",
+    "chktex",
+    "Pandoc",
+    "pandoc",
+    "DOCX",
+    "pdfinfo",
+    "Makefile",
+    "Lanie",
+    "Carmelo",
+    "Molinar",
+    "Zotero",
+    "msttcorefonts",
+    "fontconfig",
+    "EULA",
+    "texlive",
+    "inotify"
+  ],
   "ignoreRegExpList": [
     "/\\\\([a-zA-Z@]+|.)/",
     "/%.*$/",
