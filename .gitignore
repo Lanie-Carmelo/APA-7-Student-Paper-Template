@@ -11,12 +11,14 @@
 *.lof
 *.lot
 *.synctex.gz
+*.synctex(busy)
 *.nav
 *.snm
 *.vrb
 
-# PDF output
+# PDF output (except documentation)
 *.pdf
+!*.template.pdf
 
 # Editor/IDE files
 *.swp
@@ -67,5 +69,27 @@ dist/
 *.synctex(busy)
 *.pdfsync
 
-# Pandoc HTML artifacts
+# Pandoc artifacts
 *-luamml-mathml.html
+*.html
+*.docx
+
+# Output directories should be empty/recreated
+output/*
+!output/.gitkeep
+submissions/*
+!submissions/.gitkeep
+
+# Python virtual environments (if using automation)
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Node modules (if using any JS tooling)
+node_modules/
+
+# Temporary test files
+test-output/
+temp/
+tmp/

@@ -1,6 +1,16 @@
 version: 2
 updates:
+  # GitHub Actions dependency updates
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "monthly"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    reviewers:
+      - "Lanie-Carmelo"
+    open-pull-requests-limit: 5

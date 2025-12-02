@@ -7,9 +7,15 @@ repos:
         args: ['--maxkb=1000']
       - id: check-merge-conflict
       - id: trailing-whitespace
+        exclude: '^(output/|submissions/)'
       - id: end-of-file-fixer
+        exclude: '^(output/|submissions/)'
       - id: check-yaml
       - id: check-case-conflict
+      - id: mixed-line-ending
+        args: ['--fix=lf']
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
 
   # LaTeX linting
   - repo: local
